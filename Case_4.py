@@ -51,3 +51,11 @@ if text.detect_language() == 'en':
         print('Текст очень трудно читать')
     print('Обьективность: ', (1 - sub) * 100, '%')
     print('Тональность:', pol)
+else:
+    print('Индекс удобочитаемости Флеша: ',FRE_RU)
+    tokenizer = RegexTokenizer()
+    model = FastTextSocialNetworkModel(tokenizer=tokenizer)
+    messages = text
+    results = model.predict(messages, k=2)
+    for message, sentiment in zip(messages, results):
+        print(sentiment)
