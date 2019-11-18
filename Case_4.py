@@ -1,6 +1,6 @@
 """Case-study #4 Text analysis
 Developers:
-Anufrieva A.
+Anufrieva A.(67%)
 Zhuravleva A.
 """
 from textblob import TextBlob, Word, Blobber
