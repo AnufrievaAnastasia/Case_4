@@ -13,23 +13,28 @@ import local as lc
 
 text = input(lc.TXT_TEXT).lower()
 
+# Calculation of the number of sentences.
 count_sentens = text.count('.') + text.count('!') + text.count('?') + text.count('?!') + text.count('...')
 print(lc.TXT_SENTENCES, count_sentens)
 
+# Calculation of the number of words.
 count_words = len(text.split())
 print(lc.TXT_WORDS, count_words)
 
 vowel = ['a', 'e', 'i', 'o', 'u', 'у', 'е', 'ы', 'а', 'о', 'э', 'ё', 'я', 'и', 'ю']
 
+# Calculation of the number of syllables.
 count_syllables = 0
 for letter in text:
     if letter in vowel:
         count_syllables += 1
 print(lc.TXT_SYLLABLE, count_syllables)
 
+# Сalculate the average length of a sentence.
 ASL = count_words / count_sentens
 print(lc.TXT_ASL, ASL)
 
+# Сalculate the Average Number of Syllables per Word
 ASW = count_syllables / count_words
 print(lc.TXT_ASW, ASW)
 
@@ -52,7 +57,7 @@ if text.detect_language() == 'en':
     print(lc.TXT_OBJ, (1 - sub) * 100, '%')
     print(lc.TXT_TON, pol)
 else:
-    print(lc.TXT_FRE_EN_0,FRE_RU)
+    print(lc.TXT_FRE_EN_0, FRE_RU)
     tokenizer = RegexTokenizer()
     model = FastTextSocialNetworkModel(tokenizer=tokenizer)
     messages = text
