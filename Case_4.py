@@ -40,19 +40,19 @@ text = TextBlob(text)
 if text.detect_language() == 'en':
     pol = text.sentiment.polarity
     sub = text.sentiment.subjectivity
-    print('Индекс удобочитаемости Флеша: ', FRE_EN)
+    print(lc.TXT_FRE_EN_0, FRE_EN)
     if 90 <= FRE_EN <= 100:
-        print('Текст очень легко читать')
+        print(lc.TXT_FRE_EN_1)
     elif 65 <= FRE_EN < 90:
-        print('Текст не сложный')
+        print(lc.TXT_FRE_EN_2)
     elif 30 <= FRE_EN < 65:
-        print('Текст немного трудно читать')
+        print(lc.TXT_FRE_EN_3)
     else:
-        print('Текст очень трудно читать')
-    print('Обьективность: ', (1 - sub) * 100, '%')
-    print('Тональность:', pol)
+        print(lc.TXT_FRE_EN_4)
+    print(lc.TXT_OBJ, (1 - sub) * 100, '%')
+    print(lc.TXT_TON, pol)
 else:
-    print('Индекс удобочитаемости Флеша: ',FRE_RU)
+    print(lc.TXT_FRE_EN_0,FRE_RU)
     tokenizer = RegexTokenizer()
     model = FastTextSocialNetworkModel(tokenizer=tokenizer)
     messages = text
