@@ -1,7 +1,7 @@
 """Case-study #4 Text analysis
 Developers:
 Anufrieva A.(67%)
-Zhuravleva A.
+Zhuravleva A.(60%)
 """
 from textblob import TextBlob, Word, Blobber
 from textblob.classifiers import NaiveBayesClassifier
@@ -9,7 +9,11 @@ from textblob.taggers import NLTKTagger
 from dostoevsky.tokenization import RegexTokenizer
 from dostoevsky.models import FastTextSocialNetworkModel
 
-import local as lc
+language = input('Русский, English - ').lower()
+if language ==  'русский':
+    import local as lc
+else:
+    import localen as lc
 
 text = input(lc.TXT_TEXT).lower()
 
